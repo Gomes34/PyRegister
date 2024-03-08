@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from django.http import HttpResponse
+from .models import Usuario
 
 def home(request):
     return render(request, 'usuarios/home.html')
@@ -15,12 +17,11 @@ def usuarios(request):
             novoUsuario.save()
             message = "Usuário criado com sucesso!"
         
-        usuarios = {
-            'usuarios': Usuario.objects.all(),
-            'message': message
-        }
-        return render(request, 'sua_template.html', usuarios)
     else:
-        # Certifique-se de retornar um HttpResponse em todos os casos possíveis.
-        # Aqui, estamos retornando uma página vazia se o método não for POST.
-        return HttpResponse()
+        message = ""
+
+    usuarios = {
+        'usuarios': Usuario.objects.all(),
+        'message': message
+    }
+    return render(request, 'usuarios/usuarios.html', usuarios)

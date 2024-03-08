@@ -3,5 +3,5 @@ from appRegister import views
 
 urlpatterns = [
     path('', views.home, name="home"),
-    path('usuarios/', views.usuarios, name="listaUsuarios")
+    path('usuarios/', views.usuarios, name="listaUsuarios"),
 ]
