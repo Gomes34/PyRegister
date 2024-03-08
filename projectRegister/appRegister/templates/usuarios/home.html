@@ -1,0 +1,19 @@
+{% extends 'usuarios/base.html' %}
+
+{% block conteudo %}
+
+<form action="{% url 'listaUsuarios' %}" method="post"> 
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="">Endereço de email</label>
+      <input type="email" name="emailUsuario" class="form-control" placeholder="Seu email">
+    </div>
+    <div class="form-group">
+      <label for="">Nome</label>
+      <input type="text" name="nomeUsuario" class="form-control" placeholder="Nome">
+    </div>
+    <button type="submit" class="btn btn-primary">Enviar</button>
+  </form>
+
+
+{% endblock %}
